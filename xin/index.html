@@ -7,11 +7,42 @@
     <meta name="keywords" content="中本聪骰子, satoshidice,中本聪,骰子, Bitcoin Cash, Gambling, Casino, Faucet">
     <title>KimZheng - 郑镇根 个人简历</title>
     <link rel="icon" href="static/bitbug_favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <style>
+        /* [v-cloak]{
+            display: none;
+        } */
+    </style>
   </head>
   <body>
-    <div >
-        <p>郑镇根简历</p>
-    </div>
+    <!-- <div id="kimm" class="box">
+      <div class="kimm ">
+          <div class="kimm-skill">
+            <span class="label label-default">一般</span>
+            <span class="label label-primary">熟悉</span>
+            <span class="label label-success">熟练</span>
+            <span class="label label-info">掌握</span>
+            <span class="label label-warning">精通</span>
+            <span class="label label-danger">大师</span>
+            <p class="kimm-skill"  v-for="data in skill">
+                <span class="label " :class="data.shuliandu"> {{data.name}} </span> 
+            </p>
+          </div>
+      </div>
+    </div> -->
+    <h3>实现三列宽度自适应布局</h3>  
+
+    <div id = "left">我是左边</div>  
+
+    <div id = "right">我是右边</div>  
+
+    <div id = "center">我是中间</div>  
+
     <!-- built files will be auto injected -->
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/kimm.js"></script>
   </body>
 </html>
