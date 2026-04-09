@@ -3,45 +3,94 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover">
-    <meta name="description" content="Satoshiduobao is the undisputed most popular and trusted Bitcoin dice game. Instantly register and claim free bitcoins from our faucet.">
-    <meta name="keywords" content="中本聪骰子, satoshidice,中本聪,骰子, Bitcoin Cash, Gambling, Casino, Faucet">
+    <meta name="description" content="KimZheng 个人简历 - 前端工程师">
+    <meta name="keywords" content="个人简历, 个人博客, KimZheng, git KimZheng, 个人主页, 郑镇根, 前端工程师">
     <title>KimZheng - 郑镇根 个人简历</title>
-    <link rel="icon" href="static/bitbug_favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/index.css">
     <style>
-        /* [v-cloak]{
+        [v-cloak] {
             display: none;
-        } */
+        }
     </style>
   </head>
   <body>
-    <!-- <div id="kimm" class="box">
-      <div class="kimm ">
-          <div class="kimm-skill">
-            <span class="label label-default">一般</span>
-            <span class="label label-primary">熟悉</span>
-            <span class="label label-success">熟练</span>
-            <span class="label label-info">掌握</span>
-            <span class="label label-warning">精通</span>
-            <span class="label label-danger">大师</span>
-            <p class="kimm-skill"  v-for="data in skill">
-                <span class="label " :class="data.shuliandu"> {{data.name}} </span> 
-            </p>
+    <div id="kimm" class="container" v-cloak>
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="avatar">
+            <img :src="avatar" :alt="name">
           </div>
-      </div>
-    </div> -->
-    <h3>实现三列宽度自适应布局</h3>  
+          <h1 class="name">{{ name }}</h1>
+          <h2 class="job">{{ job }}</h2>
+          <p class="bio">{{ bio }}</p>
+          <div class="social-links">
+            <a v-for="link in socialLinks" :key="link.name" :href="link.url" target="_blank" rel="noopener noreferrer" class="social-link">
+              <span class="link-icon">{{ link.icon }}</span>
+              <span class="link-text">{{ link.name }}</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-bg"></div>
+      </section>
 
-    <div id = "left">我是左边</div>  
+      <section class="skills-section">
+        <h3 class="section-title">技术技能</h3>
+        <div class="skills-container">
+          <div v-for="data in skill" :key="data.name" class="skill-item" :class="data.shuliandu">
+            <span class="skill-name">{{ data.name }}</span>
+            <span class="skill-level">{{ data.level }}</span>
+          </div>
+        </div>
+      </section>
 
-    <div id = "right">我是右边</div>  
+      <section class="experience-section">
+        <h3 class="section-title">工作经历</h3>
+        <div class="timeline">
+          <div v-for="(exp, index) in experiences" :key="index" class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h4 class="company">{{ exp.company }}</h4>
+                <span class="period">{{ exp.period }}</span>
+              </div>
+              <h5 class="position">{{ exp.position }}</h5>
+              <p class="description">{{ exp.description }}</p>
+              <div class="projects" v-if="exp.projects && exp.projects.length">
+                <div v-for="(project, pIndex) in exp.projects" :key="pIndex" class="project">
+                  <h6 class="project-name">{{ project.name }}</h6>
+                  <p class="project-desc">{{ project.description }}</p>
+                  <div class="tech-stack">
+                    <span v-for="tech in project.techStack" :key="tech" class="tech-tag">{{ tech }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <div id = "center">我是中间</div>  
+      <section class="contact-section">
+        <h3 class="section-title">联系方式</h3>
+        <div class="contact-container">
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <a :href="'mailto:' + email" class="contact-text">{{ email }}</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <a :href="'tel:' + phone" class="contact-text">{{ phone }}</a>
+          </div>
+        </div>
+      </section>
 
-    <!-- built files will be auto injected -->
-    <script src="./js/bootstrap.min.js"></script>
+      <footer class="footer">
+        <p>&copy; {{ new Date().getFullYear() }} {{ name }}. All rights reserved.</p>
+      </footer>
+    </div>
+
     <script src="./js/vue.js"></script>
     <script src="./js/kimm.js"></script>
   </body>
